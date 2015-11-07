@@ -1,0 +1,158 @@
+
+# project cocos2d-x
+
+
+set (SOURCE_FILES
+cocos2d-x/gui/CCControlExtension/CCControl.cpp
+cocos2d-x/gui/CCControlExtension/CCControlButton.cpp
+cocos2d-x/gui/CCControlExtension/CCControlColourPicker.cpp
+cocos2d-x/gui/CCControlExtension/CCControlHuePicker.cpp
+cocos2d-x/gui/CCControlExtension/CCControlPotentiometer.cpp
+cocos2d-x/gui/CCControlExtension/CCControlSaturationBrightnessPicker.cpp
+cocos2d-x/gui/CCControlExtension/CCControlSlider.cpp
+cocos2d-x/gui/CCControlExtension/CCControlStepper.cpp
+cocos2d-x/gui/CCControlExtension/CCControlSwitch.cpp
+cocos2d-x/gui/CCControlExtension/CCControlUtils.cpp
+cocos2d-x/gui/CCControlExtension/CCInvocation.cpp
+cocos2d-x/gui/CCControlExtension/CCScale9Sprite.cpp
+cocos2d-x/gui/CCEditBox/CCEditBox.cpp
+cocos2d-x/gui/CCScrollView/CCScrollView.cpp
+cocos2d-x/gui/CCScrollView/CCSorting.cpp
+cocos2d-x/gui/CCScrollView/CCTableView.cpp
+cocos2d-x/gui/CCScrollView/CCTableViewCell.cpp
+#cocos2d-x/extensions/network/WebSocket.cpp
+cocos2d-x/external/extra/apptools/HelperFunc.cpp
+cocos2d-x/external/extra/crypto/CCCrypto.cpp
+#cocos2d-x/external/extra/luabinding/cocos2dx_extra_ios_iap_luabinding.cpp
+#cocos2d-x/external/extra/luabinding/cocos2dx_extra_luabinding.cpp
+cocos2d-x/external/extra/luabinding/CZHelperFunc_luabinding.cpp
+cocos2d-x/external/extra/crypto/base64/libbase64.c
+cocos2d-x/external/extra/crypto/md5/md5.c
+cocos2d-x/cocos2dx/ccFPSImages.c
+cocos2d-x/cocos2dx/base_nodes/CCAtlasNode.cpp
+cocos2d-x/cocos2dx/base_nodes/CCGLBufferedNode.cpp
+cocos2d-x/cocos2dx/base_nodes/CCNode.cpp
+cocos2d-x/cocos2dx/draw_nodes/CCDrawingPrimitives.cpp
+cocos2d-x/cocos2dx/draw_nodes/CCDrawNode.cpp
+cocos2d-x/cocos2dx/draw_nodes/CCShapeNode.cpp
+cocos2d-x/cocos2dx/effects/CCGrabber.cpp
+cocos2d-x/cocos2dx/effects/CCGrid.cpp
+cocos2d-x/cocos2dx/keypad_dispatcher/CCKeypadDelegate.cpp
+cocos2d-x/cocos2dx/keypad_dispatcher/CCKeypadDispatcher.cpp
+cocos2d-x/cocos2dx/menu_nodes/CCMenu.cpp
+cocos2d-x/cocos2dx/menu_nodes/CCMenuItem.cpp
+cocos2d-x/cocos2dx/script_support/CCScriptSupport.cpp
+cocos2d-x/cocos2dx/shaders/CCGLProgram.cpp
+cocos2d-x/cocos2dx/shaders/ccGLStateCache.cpp
+cocos2d-x/cocos2dx/shaders/CCShaderCache.cpp
+cocos2d-x/cocos2dx/shaders/ccShaders.cpp
+cocos2d-x/cocos2dx/text_input_node/CCIMEDispatcher.cpp
+cocos2d-x/cocos2dx/text_input_node/CCTextFieldTTF.cpp
+cocos2d-x/cocos2dx/touch_dispatcher/CCTouch.cpp
+cocos2d-x/cocos2dx/touch_dispatcher/CCTouchDispatcher.cpp
+cocos2d-x/cocos2dx/touch_dispatcher/CCTouchHandler.cpp
+cocos2d-x/cocos2dx/touch_dispatcher/CCTouchTargetNode.cpp
+)
+
+file (GLOB platform_files 
+    cocos2d-x/ProjectConfig/*.cpp
+    cocos2d-x/cocos2dx/ui/*.cpp #cocostudio ui
+	cocos2d-x/cocos2dx/*.cpp
+	cocos2d-x/cocos2dx/platform/*.cpp
+    cocos2d-x/cocos2dx/label_nodes/*.cpp
+	cocos2d-x/cocos2dx/actions/*.cpp
+	cocos2d-x/cocos2dx/cocoa/*.cpp
+	cocos2d-x/cocos2dx/support/*.cpp
+	cocos2d-x/cocos2dx/support/*.c
+	cocos2d-x/cocos2dx/support/component/*.cpp
+	cocos2d-x/cocos2dx/support/data_support/*.cpp
+	cocos2d-x/cocos2dx/support/user_default/*.cpp
+	cocos2d-x/cocos2dx/support/zip_support/*.cpp
+    cocos2d-x/cocos2dx/textures/*.cpp
+    cocos2d-x/cocos2dx/sprite_nodes/*.cpp
+    cocos2d-x/cocos2dx/tilemap_parallax_nodes/*.cpp
+    cocos2d-x/cocos2dx/particle_nodes/*.cpp
+    cocos2d-x/cocos2dx/layers_scenes_transitions_nodes/*.cpp
+    cocos2d-x/cocos2dx/misc_nodes/*.cpp
+	)
+
+list(APPEND SOURCE_FILES ${platform_files})
+
+if (WIN32)
+	list(APPEND SOURCE_FILES 
+		cocos2d-x/Audio/win32/MciPlayer.cpp
+		cocos2d-x/Audio/win32/SimpleAudioEngine.cpp
+		cocos2d-x/gui/CCEditBox/CCEditBoxImplWin.cpp
+		cocos2d-x/external/extra/platform/win32/CCCryptoWin32.cpp
+		cocos2d-x/external/extra/platform/win32/CCNative.cpp
+		cocos2d-x/external/extra/platform/win32/CCNativeWin32.cpp
+		cocos2d-x/external/extra/platform/win32/CCNetworkWin32.cpp
+		cocos2d-x/external/extra/platform/win32/CCStorePaymentTransactionWrapper.cpp
+		)
+	set(PLATFORM_INCLUDE
+		${CMAKE_CURRENT_SOURCE_DIR}/cocos2d-x/Audio/win32
+		${CMAKE_CURRENT_SOURCE_DIR}/cocos2d-x/Audio/win32/include
+		${CMAKE_CURRENT_SOURCE_DIR}/cocos2d-x/external/libwebsockets/win32/include
+		${CMAKE_CURRENT_SOURCE_DIR}/cocos2d-x/cocos2dx/platform/win32
+		${CMAKE_CURRENT_SOURCE_DIR}/cocos2d-x/cocos2dx/platform/third_party/win32
+		${CMAKE_CURRENT_SOURCE_DIR}/cocos2d-x/cocos2dx/platform/third_party/win32/curl
+		${CMAKE_CURRENT_SOURCE_DIR}/cocos2d-x/cocos2dx/platform/third_party/win32/iconv
+		${CMAKE_CURRENT_SOURCE_DIR}/cocos2d-x/cocos2dx/platform/third_party/win32/OGLES
+		${CMAKE_CURRENT_SOURCE_DIR}/cocos2d-x/cocos2dx/platform/third_party/win32/pthread
+		${CMAKE_CURRENT_SOURCE_DIR}/cocos2d-x/cocos2dx/platform/third_party/win32/zlib
+		)
+elseif (ANDROID)
+	list(APPEND SOURCE_FILES 
+		cocos2d-x/Audio/android/SimpleAudioEngine.cpp 
+		cocos2d-x/Audio/android/jni/SimpleAudioEngineJni.cpp
+		cocos2d-x/Audio/android/jni/SimpleAudioEngineJni.cpp
+		cocos2d-x/cocos2dx/platform/android/jni/DPIJni.cpp
+		cocos2d-x/cocos2dx/platform/android/jni/IMEJni.cpp
+		cocos2d-x/cocos2dx/platform/android/jni/Java_org_cocos2dx_lib_Cocos2dxAccelerometer.cpp
+		cocos2d-x/cocos2dx/platform/android/jni/Java_org_cocos2dx_lib_Cocos2dxBitmap.cpp
+		cocos2d-x/cocos2dx/platform/android/jni/Java_org_cocos2dx_lib_Cocos2dxHelper.cpp
+		cocos2d-x/cocos2dx/platform/android/jni/Java_org_cocos2dx_lib_Cocos2dxRenderer.cpp
+		cocos2d-x/cocos2dx/platform/android/jni/JniHelper.cpp
+		cocos2d-x/cocos2dx/platform/android/jni/TouchesJni.cpp
+		cocos2d-x/gui/CCEditBox/CCEditBoxImplAndroid.cpp
+		cocos2d-x/scripting/lua/cocos2dx_support/platform/android/CCLuaJavaBridge.cpp
+		cocos2d-x/scripting/lua/cocos2dx_support/platform/android/org_cocos2dx_lib_Cocos2dxLuaJavaBridge.cpp
+		)
+
+	set(PLATFORM_INCLUDE
+		${CMAKE_CURRENT_SOURCE_DIR}/cocos2d-x/cocos2dx/platform/android/jni
+		${CMAKE_CURRENT_SOURCE_DIR}/cocos2d-x/cocos2dx/platform/android
+		)
+
+
+elseif (MAC)
+	file (GLOB mac_audio_files 
+  		cocos2d-x/Audio/mac/*.m
+  		cocos2d-x/Audio/mac/*.mm)
+	set(PLATFORM_INCLUDE
+        ${CMAKE_CURRENT_SOURCE_DIR}/cocos2d-x/Audio/mac
+        #${CMAKE_CURRENT_SOURCE_DIR}/cocos2d-x/cocos2dx/platform/mac
+        ${CMAKE_CURRENT_SOURCE_DIR}/cocos2d-x/cocos2dx/platform/third_party/mac
+        #${CMAKE_CURRENT_SOURCE_DIR}/cocos2d-x/cocos2dx/platform/third_party/mac/webp
+        #${CMAKE_CURRENT_SOURCE_DIR}/cocos2d-x/external/libwebsockets/mac/include
+    )
+	#list(APPEND SOURCE_FILES ${mac_audio_files})
+endif()
+
+set(INCLUDE_DIRS
+${CMAKE_CURRENT_SOURCE_DIR}/cocos2d-x/Audio/include
+${CMAKE_CURRENT_SOURCE_DIR}/cocos2d-x/gui
+${CMAKE_CURRENT_SOURCE_DIR}/cocos2d-x/ui
+${CMAKE_CURRENT_SOURCE_DIR}/cocos2d-x/external/extra
+${CMAKE_CURRENT_SOURCE_DIR}/cocos2d-x/external/extra/luabinding
+${CMAKE_CURRENT_SOURCE_DIR}/cocos2d-x/
+${CMAKE_CURRENT_SOURCE_DIR}/cocos2d-x/cocos2dx
+${CMAKE_CURRENT_SOURCE_DIR}/cocos2d-x/cocos2dx/support
+${CMAKE_CURRENT_SOURCE_DIR}/cocos2d-x/cocos2dx/include
+${CMAKE_CURRENT_SOURCE_DIR}/cocos2d-x/cocos2dx/platform
+${CMAKE_CURRENT_SOURCE_DIR}/cocos2d-x/scripting/lua/cocos2dx_support
+${CMAKE_CURRENT_SOURCE_DIR}/cocos2dx_lua
+${DEPS_INCLUDE}
+${PLATFORM_INCLUDE}
+)
+

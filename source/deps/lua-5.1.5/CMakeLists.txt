@@ -1,0 +1,37 @@
+set(SOURCE_FILES
+	src/lapi.c
+	src/ldump.c
+	src/lmem.c
+	src/lstring.c
+	src/lundump.c
+	src/lauxlib.c
+	src/lfunc.c
+	src/loadlib.c
+	src/lstrlib.c
+	src/lvm.c
+	src/lbaselib.c
+	src/lgc.c
+	src/lobject.c
+	src/ltable.c
+	src/lzio.c
+	src/lcode.c
+	src/linit.c
+	src/lopcodes.c
+	src/ltablib.c
+	src/ldblib.c
+	src/liolib.c
+	src/loslib.c
+	src/ltm.c
+	src/ldebug.c
+	src/llex.c
+	src/lparser.c
+	src/ldo.c
+	src/lmathlib.c
+	src/lstate.c
+)
+#src/print.c
+#src/luac.c
+#src/lua.c
+set (INCLUDE_DIRS src)
+
+setup_library(lua)
