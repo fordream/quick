@@ -747,9 +747,6 @@ void CCDirector::purgeDirector()
     // OpenGL view
     m_pobOpenGLView->end();
     m_pobOpenGLView = NULL;
-
-    // delete CCDirector
-    release();
 }
 
 void CCDirector::setNextScene(void)

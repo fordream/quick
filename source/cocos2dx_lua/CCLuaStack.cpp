@@ -139,7 +139,9 @@ bool CCLuaStack::init(void)
 
     luaL_openlibs(m_state);
     toluafix_open(m_state);
-    tolua_Cocos2d_open(m_state);
+
+    luaopen_Core(m_state);
+    luaopen_Modules(m_state);
 
 #if CC_CCB_ENABLED > 0
     // CCB
@@ -896,13 +898,13 @@ NS_CC_END
 
 USING_NS_CC;
 
-static map<unsigned int, char*> hash_type_mapping;
+static map<unsigned int, std::string> hash_type_mapping;
 
 TOLUA_API void toluafix_add_type_mapping(unsigned int type, const char *clsName)
 {
     if (hash_type_mapping.find(type) == hash_type_mapping.end())
     {
-        hash_type_mapping[type] = strdup(clsName);
+        hash_type_mapping[type] = std::string(clsName);
     }
 }
 
@@ -920,7 +922,7 @@ TOLUA_API int toluafix_pushusertype_ccobject(lua_State *L,
 
     CCObject *ptr = static_cast<CCObject*>(vptr);
     unsigned int hash = CLASS_HASH_CODE(typeid(*ptr));
-    char* type = hash_type_mapping[hash];
+    const char* type = hash_type_mapping[hash].c_str();
     if (type == NULL)
     {
         // CCLOG("[TOLUA] Unable to find type map for object %s:%p,", vtype, vptr);

@@ -1,3 +1,4 @@
+
 $pfile "Modules/UI/UIButton.tolua"
 $pfile "Modules/UI/UICheckBox.tolua"
 $pfile "Modules/UI/UIHelper.tolua"
@@ -19,23 +20,18 @@ $pfile "Modules/UI/UISlider.tolua"
 $pfile "Modules/UI/UITextField.tolua"
 $pfile "Modules/UI/UITouchGroup.tolua"
 $pfile "Modules/UI/UIWidget.tolua"
-
 $pfile "Modules/TileMap/CCParallaxNode.tolua"
 $pfile "Modules/TileMap/CCTMXLayer.tolua"
 $pfile "Modules/TileMap/CCTMXObjectGroup.tolua"
 $pfile "Modules/TileMap/CCTMXTiledMap.tolua"
 $pfile "Modules/TileMap/CCTMXXMLParser.tolua"
-
 $pfile "Modules/Particle/CCParticleBatchNode.tolua"
 $pfile "Modules/Particle/CCParticleExamples.tolua"
 $pfile "Modules/Particle/CCParticleSystem.tolua"
 $pfile "Modules/Particle/CCParticleSystemQuad.tolua"
-
 $pfile "Modules/ScrollView/CCScrollView.tolua"
 $pfile "Modules/ScrollView/CCTableView.tolua"
-
 $pfile "Modules/EditBox/CCControl.tolua"
 $pfile "Modules/EditBox/CCControlButton.tolua"
 $pfile "Modules/EditBox/CCEditBox.tolua"
-
 $pfile "Modules/Audio/SimpleAudioEngine.tolua"

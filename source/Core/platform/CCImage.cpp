@@ -41,18 +41,17 @@ CCImage::CCImage()
 , m_pData(0)
 , m_bHasAlpha(false)
 , m_bPreMulti(false)
+, _img_free_func(NULL)
 {
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_WINRT) || (CC_TARGET_PLATFORM == CC_PLATFORM_WP8)
-	m_ft = nullptr;
-#endif
+
 }
 
 CCImage::~CCImage()
 {
-	CC_SAFE_DELETE_ARRAY(m_pData);
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_WINRT) || (CC_TARGET_PLATFORM == CC_PLATFORM_WP8)
-	CC_SAFE_DELETE(m_ft);
-#endif
+    if (_img_free_func)
+        _img_free_func(m_pData);
+    else
+	    CC_SAFE_DELETE_ARRAY(m_pData);
 }
 
 
@@ -71,11 +70,13 @@ bool CCImage::initWithImageData(void * pData,
 	int nBitsPerComponent/* = 8*/)
 {
 
-	// may be very slow for jpg.
 	if (eFmt != kFmtRawData)
 	{
 		int w, h, components;
-		m_pData = stbi_load_from_memory((stbi_uc*)pData, nDataLen, &w, &h, (int*)&components, 4);
+        // may be very slow for jpg.
+        m_pData = stbi_load_from_memory((stbi_uc*)pData, nDataLen, &w, &h, (int*)&components, 4);
+
+        _img_free_func = stbi_image_free;
 
 		m_nWidth = w;
 		m_nHeight = h;

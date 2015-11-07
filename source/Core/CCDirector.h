@@ -95,7 +95,7 @@ and when to execute the Scenes.
   - GL_COLOR_ARRAY is enabled
   - GL_TEXTURE_COORD_ARRAY is enabled
 */
-class CC_DLL CCDirector : public CCObject, public TypeInfo
+class CC_DLL CCDirector : public TypeInfo
 {
 public:
     /**

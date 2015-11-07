@@ -9,24 +9,17 @@
 
 NS_CC_BEGIN
 
+#define MAX_LEN         (cocos2d::kMaxLogLen + 1)
+#include "SDL_messagebox.h"
+
+
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
 
 #include <shlwapi.h>
 
-#define MAX_LEN         (cocos2d::kMaxLogLen + 1)
-
 void SendLogToWindow(const char *log)
 {
-    // Send data as a message
-    //     COPYDATASTRUCT myCDS;
-    //     myCDS.dwData = CCLOG_STRING;
-    //     myCDS.cbData = (DWORD)strlen(log) + 1;
-    //     myCDS.lpData = (PVOID)log;
-    //     HWND hwnd = CCEGLView::sharedOpenGLView()->getHWnd();
-    //     SendMessage(hwnd,
-    //         WM_COPYDATA,
-    //         (WPARAM)(HWND)hwnd,
-    //         (LPARAM)(LPVOID)&myCDS);
+
 }
 
 
@@ -49,24 +42,12 @@ void CCLog(const char * pszFormat, ...)
     puts(szBuf);
 }
 
-void CCLuaLog(const char *pszMsg)
-{
-    CCLog("%s", pszMsg);
-}
-
-void CCMessageBox(const char * pszMsg, const char * pszTitle)
-{
-//    MessageBoxA(NULL, pszMsg, pszTitle, MB_OK);
-}
 #elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
 
 #include "jni/Java_org_cocos2dx_lib_Cocos2dxHelper.h"
 #include <android/log.h>
 #include <stdio.h>
 #include <jni.h>
-
-
-#define MAX_LEN         (cocos2d::kMaxLogLen + 1)
 
 void CCLog(const char * pszFormat, ...)
 {
@@ -80,16 +61,16 @@ void CCLog(const char * pszFormat, ...)
     __android_log_print(ANDROID_LOG_DEBUG, "cocos2d-x debug info", "%s", buf);
 }
 
+#endif
+
 void CCMessageBox(const char * pszMsg, const char * pszTitle)
 {
-    //showDialogJNI(pszMsg, pszTitle);
+    SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_INFORMATION, pszTitle, pszMsg, 0);
 }
 
-void CCLuaLog(const char * pszFormat)
+void CCLuaLog(const char *pszMsg)
 {
-    __android_log_print(ANDROID_LOG_DEBUG, "cocos2d-x debug info", "%s", pszFormat);
+    CCLog("%s", pszMsg);
 }
-
-#endif
 
 NS_CC_END

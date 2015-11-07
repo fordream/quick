@@ -1051,16 +1051,16 @@ class CCNode : public CCScriptEventDispatcher
 // end of base_node group
 /// @}
 ${
-#define TOLUA_DISABLE_tolua_Cocos2d_CCNode_setAnchorPoint01
-static int tolua_Cocos2d_CCNode_setAnchorPoint01(lua_State* tolua_S)
+#define TOLUA_DISABLE_tolua_Core_CCNode_setAnchorPoint01
+static int tolua_Core_CCNode_setAnchorPoint01(lua_State* tolua_S)
 {
     return setPositionXY<CCNode>(tolua_S, "CCNode");
 }
 
-#define TOLUA_DISABLE_tolua_Cocos2d_CCNode_setContentSize01
-static int tolua_Cocos2d_CCNode_setContentSize00(lua_State* tolua_S);
+#define TOLUA_DISABLE_tolua_Core_CCNode_setContentSize01
+static int tolua_Core_CCNode_setContentSize00(lua_State* tolua_S);
 
-static int tolua_Cocos2d_CCNode_setContentSize01(lua_State* tolua_S)
+static int tolua_Core_CCNode_setContentSize01(lua_State* tolua_S)
 {
  tolua_Error tolua_err;
  if (
@@ -1084,6 +1084,6 @@ static int tolua_Cocos2d_CCNode_setContentSize01(lua_State* tolua_S)
  }
  return 0;
 tolua_lerror:
- return tolua_Cocos2d_CCNode_setContentSize00(tolua_S);
+ return tolua_Core_CCNode_setContentSize00(tolua_S);
 }
 $}

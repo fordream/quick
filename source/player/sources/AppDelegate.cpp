@@ -37,13 +37,13 @@ bool AppDelegate::applicationDidFinishLaunching()
 
 	CCLuaStack *pStack = pEngine->getLuaStack();
 
-    std::string root = getenv("QUICK_COCOS2DX_ROOT");
-    root.append("/");
-    std::string simplePath = root + "samples\\coinflip\\";
+    std::string root = getConfig("workdir");
 
-    CCFileUtils::sharedFileUtils()->setSearchRootPath(simplePath.c_str());
-    CCFileUtils::sharedFileUtils()->addSearchPath(root.c_str());//for framework use
-    CCFileUtils::sharedFileUtils()->addSearchPath("res/");
+    CCFileUtils::sharedFileUtils()->setSearchRootPath(root.c_str());
+#if CC_TARGET_PLATFORM == CC_PLATFORM_WIN32
+    CCFileUtils::sharedFileUtils()->addSearchPath(FRAMEWORK_PATH);
+#endif
+    CCFileUtils::sharedFileUtils()->addSearchPath("res");
 
 	pStack->addSearchPath("scripts/");
 
@@ -73,9 +73,4 @@ void AppDelegate::applicationWillEnterForeground()
 	CCNotificationCenter::sharedNotificationCenter()->postNotification("APP_ENTER_FOREGROUND_EVENT");
 }
 
-void AppDelegate::setProjectConfig(const ProjectConfig& config)
-{
-	m_projectConfig = config;
-}
-
-DEFINE_MAIN(AppDelegate);
+DEFINE_APP(AppDelegate);

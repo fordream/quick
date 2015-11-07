@@ -321,6 +321,25 @@ public:
     }
 };
 
+static std::string normalizePath(const std::string& i)
+{
+    if (i.size() == 0)
+        return i;
+    std::string ret = i;
+
+    //if (!directorySeparator) directorySeparator = DIRECTORY_SEPARATOR;
+    size_t pos = std::string::npos;
+    while ((pos = ret.find_first_of("/\\", pos + 1)) != std::string::npos)
+    {
+        ret.replace(pos, 1, "/");
+    }
+
+    if (ret[ret.size() - 1] != '/')
+        ret.append("/");
+
+    return ret;
+}
+
 CCDictionary* CCFileUtils::createCCDictionaryWithContentsOfFile(const std::string& filename)
 {
     std::string fullPath = fullPathForFilename(filename.c_str());
@@ -716,23 +735,23 @@ void CCFileUtils::setSearchPaths(const std::vector<std::string>& searchPaths)
     m_searchPathArray.clear();
     m_searchPathArray.assign(searchPaths.begin(), searchPaths.end());
     updateSearchPathArrayCheck();
-        }
+}
     
 void CCFileUtils::setSearchRootPath(const char* path)
-    {
+{
     m_fullPathCache.clear();
-    m_strDefaultResRootPath = path ? path : "";
+    m_strDefaultResRootPath = normalizePath(path ? path : "");
     updateSearchPathArrayCheck();
-    }
+}
 
 void CCFileUtils::addSearchPath(const char* path)
 {
     if (path && strlen(path) > 0)
     {
-    m_searchPathArray.push_back(path);
+        m_searchPathArray.push_back(path);
         updateSearchPathArrayCheck();
+    }
 }
-	}
 
 void CCFileUtils::setFilenameLookupDictionary(CCDictionary* pFilenameLookupDict)
 {
@@ -799,25 +818,6 @@ bool CCFileUtils::isAbsolutePath(const std::string& strPath)
 #endif
 
     return false;
-}
-
-static std::string normalizePath(const std::string& i)
-{
-    if (i.size() == 0)
-        return i;
-    std::string ret = i;
-
-    //if (!directorySeparator) directorySeparator = DIRECTORY_SEPARATOR;
-    size_t pos = std::string::npos;
-    while ((pos = ret.find_first_of("/\\", pos + 1)) != std::string::npos)
-    {
-        ret.replace(pos, 1, "/");
-    }
-
-    if (ret[ret.size() - 1] != '/')
-        ret.append("/");
-
-    return ret;
 }
 
 std::string CCFileUtils::getWritablePath()

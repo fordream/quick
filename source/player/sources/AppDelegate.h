@@ -3,7 +3,6 @@
 #define  _APP_DELEGATE_H_
 
 #include "CCApplication.h"
-#include "cocos2d-x/ProjectConfig/SimulatorConfig.h"
 
 class StartupCall;
 
@@ -36,11 +35,6 @@ public:
      @param  the pointer of the application
      */
     virtual void applicationWillEnterForeground();
-
-	void setProjectConfig(const ProjectConfig& config);
-
-private:
-	ProjectConfig m_projectConfig;
 };
 
 #endif // _APP_DELEGATE_H_

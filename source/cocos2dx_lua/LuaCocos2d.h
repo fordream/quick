@@ -9,6 +9,7 @@ extern "C" {
 }
 #endif
 
-TOLUA_API int tolua_Cocos2d_open(lua_State* tolua_S);
+TOLUA_API int luaopen_Core(lua_State* tolua_S);
+TOLUA_API int luaopen_Modules(lua_State* tolua_S);
 
 #endif // __LUACOCOS2D_H_

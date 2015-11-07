@@ -9,6 +9,8 @@ player/sources
 ${COCOS2D_INCLUDES}
 )
 
+add_definitions(-DFRAMEWORK_PATH="${CMAKE_CURRENT_SOURCE_DIR}/../")
+
 if (ANDROID)
     add_library(player SHARED ${src_files})
 else ()

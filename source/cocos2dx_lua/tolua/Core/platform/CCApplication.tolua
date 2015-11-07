@@ -50,8 +50,8 @@ class CCApplication
 /// @}
 
 ${
-#define TOLUA_DISABLE_tolua_Cocos2d_CCApplication_isIOS64bit00
-static int tolua_Cocos2d_CCApplication_isIOS64bit00(lua_State* tolua_S)
+#define TOLUA_DISABLE_tolua_Core_CCApplication_isIOS64bit00
+static int tolua_Core_CCApplication_isIOS64bit00(lua_State* tolua_S)
 {
 #ifndef TOLUA_RELEASE
     tolua_Error tolua_err;

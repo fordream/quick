@@ -85,6 +85,15 @@ TargetPlatform CCApplication::getTargetPlatform()
 
 int CCApplication::run(int argc, char** argv)
 {
+    std::string args;
+    for (int i = 1; i < argc; ++i)
+    {
+        args.append((const char*)argv[i]);
+        args.append(" ");
+    }
+
+    parseArguments(args);
+
 	CCEGLView* e = CCEGLView::sharedOpenGLView();
 
     e->createWithSize(640, 960);
@@ -152,6 +161,115 @@ void CCApplication::setAnimationInterval(double interval)
 void CCApplication::quit()
 {
     _running = false;
+}
+
+
+struct NamedScreenSize
+{
+    const char* name;
+    int width, height;
+};
+
+static NamedScreenSize s_allSize[] = {
+    { "iPhone 3Gs (320x480)", 320, 480 },
+    { "iPhone 4 (640x960)", 640, 960 },
+    { "iPhone 5 (640x1136)", 640, 1136 },
+    { "iPad (768x1024)", 768, 1024 },
+    { "iPad Retina (1536x2048)", 1536, 2048 },
+    { "Android (480x800)", 480, 800 },
+    { "Android (480x854)", 480, 854 },
+    { "Android (540x960)", 540, 960 },
+    { "Android (600x1024)", 600, 1024 },
+    { "Android (720x1280)", 720, 1280 },
+    { "Android (800x1280)", 800, 1280 },
+    { "Android (1080x1920)", 1080, 1920 },
+};
+
+static int getSizeIndex(int width, int height)
+{
+    if (width > height)
+    {
+        int w = width;
+        width = height;
+        height = w;
+    }
+
+    int count = sizeof(s_allSize) / sizeof(s_allSize[0]);
+
+    for (int i = 0; i < count; ++i)
+    {
+        const NamedScreenSize &size = s_allSize[i];
+        if (size.width == width && size.height == height)
+        {
+            return i;
+        }
+    }
+
+    return -1;
+}
+
+const std::string& CCApplication::getConfig(const std::string& name)
+{
+    ConfigMap::iterator iter = _configs.find(name);
+    if (iter != _configs.end())
+        return iter->second;
+
+    return "";
+}
+
+void CCApplication::parseArguments(const std::string& args)
+{
+    unsigned cmdStart = 0, cmdEnd = 0;
+
+    bool inQuote = false;
+    bool inCmd = false;
+    const char* start = args.c_str();
+
+    for (unsigned i = 0; i < args.size(); ++i)
+    {
+        if (args[i] == '\"')
+            inQuote = !inQuote;
+        if (args[i] == ' ' && !inQuote)
+        {
+            if (inCmd)
+            {
+                inCmd = false;
+                cmdEnd = i;
+
+                addConfig(start + cmdStart, start + cmdEnd);
+            }
+        }
+        else
+        {
+            if (!inCmd)
+            {
+                inCmd = true;
+                cmdStart = i;
+            }
+        }
+    }
+}
+
+void CCApplication::addConfig(const char* spos, const char* epos)
+{
+    bool inCmd = false;
+    for (const char* c = spos; c != epos; c++)
+    {
+        if ((*c) == '\"')
+        {
+            inCmd = !inCmd;
+        }
+        else if ((*c) == '=' && !inCmd)
+        {
+            c++;
+            // -workdir="123";
+            if ((*c)== '\"')
+                _configs[std::string(spos + 1, c - 2 - spos)] = std::string(c + 1, epos - c - 2);
+            else
+                _configs[std::string(spos + 1, c - 2 - spos)] = std::string(c, epos - c);
+            break;
+        }
+    }
 }
 
 NS_CC_END

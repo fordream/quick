@@ -103,19 +103,19 @@ class CCTwirl : public CCGrid3DAction
 /// @}
 
 ${
-#define TOLUA_DISABLE_tolua_Cocos2d_CCLens3D_setPosition01
-static int tolua_Cocos2d_CCLens3D_setPosition01(lua_State* tolua_S)
+#define TOLUA_DISABLE_tolua_Core_CCLens3D_setPosition01
+static int tolua_Core_CCLens3D_setPosition01(lua_State* tolua_S)
 {
     return setPositionXY<CCLens3D>(tolua_S, "CCLens3D");
 }
 
-#define TOLUA_DISABLE_tolua_Cocos2d_CCRipple3D_setPosition01
-static int tolua_Cocos2d_CCRipple3D_setPosition01(lua_State* tolua_S)
+#define TOLUA_DISABLE_tolua_Core_CCRipple3D_setPosition01
+static int tolua_Core_CCRipple3D_setPosition01(lua_State* tolua_S)
 {
     return setPositionXY<CCRipple3D>(tolua_S, "CCRipple3D");
 }
-#define TOLUA_DISABLE_tolua_Cocos2d_CCTwirl_setPosition01
-static int tolua_Cocos2d_CCTwirl_setPosition01(lua_State* tolua_S)
+#define TOLUA_DISABLE_tolua_Core_CCTwirl_setPosition01
+static int tolua_Core_CCTwirl_setPosition01(lua_State* tolua_S)
 {
     return setPositionXY<CCTwirl>(tolua_S, "CCTwirl");
 }

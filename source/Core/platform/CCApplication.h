@@ -5,6 +5,7 @@
 #include "platform/CCCommon.h"
 #include "platform/CCApplicationProtocol.h"
 #include <string>
+#include <map>
 #include "CCTimer.h"
 
 NS_CC_BEGIN
@@ -44,7 +45,16 @@ public:
 
 	static CCApplication* sharedApplication();
 
+    void parseArguments(const std::string& args);
+    const std::string& getConfig(const std::string& name);
+
 protected:
+
+    void addConfig(const char* spos, const char* epos);
+
+    typedef std::map<std::string, std::string> ConfigMap;
+    ConfigMap _configs;
+
     int _fps;
     bool _running;
     CCTimerHiRes _frameTimer;
@@ -54,11 +64,11 @@ protected:
 
 NS_CC_END
 
-#define DEFINE_MAIN(appType) \
-extern "C" int SDL_main(int argc, char** argv) \
+#define DEFINE_APP(appType) \
+    extern "C" int SDL_main(int argc, char** argv) \
 { \
-	cocos2d::CCApplication* app = new appType; \
-    return app->run(argc, argv); \
+    appType app; \
+    return app.run(argc, argv); \
 }
 
 #endif    // __CC_APPLICATION_WIN32_H__
