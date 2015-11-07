@@ -12,8 +12,8 @@ extern "C" {
 #include "CCLuaStack.h"
 #include "CCLuaValue.h"
 #include "CCLuaEngine.h"
-#include "CCScrollView/CCScrollView.h"
-#include "CCScrollView/CCTableView.h"
+#include "ScrollView/CCScrollView.h"
+#include "ScrollView/CCTableView.h"
 
 
 USING_NS_CC;

@@ -31,7 +31,7 @@
 #include "touch_dispatcher/CCTouchDispatcher.h"
 #include "CCDirector.h"
 #include "keypad_dispatcher/CCKeypadDispatcher.h"
-#include "CCScrollView/CCTableView.h"
+#include "ScrollView/CCTableView.h"
 
 NS_CC_BEGIN
 
