@@ -3,25 +3,21 @@
 #define __COMPATIBLECLASSES_H__
 
 #include "cocos2d.h"
-#include "../../BaseClasses/UIWidget.h"
-#include "../UIButton.h"
-#include "../UICheckBox.h"
-#include "../UIImageView.h"
-#include "../UILabel.h"
-#include "../UILabelAtlas.h"
-#include "../UILabelBMFont.h"
-#include "../UILoadingBar.h"
-#include "../UISlider.h"
-#include "../UITextField.h"
-#include "../../Layouts/UILayout.h"
-#include "../ScrollWidget/UIListView.h"
-#include "../ScrollWidget/UIPageView.h"
-#include "../ScrollWidget/UIScrollView.h"
+#include "UIWidget.h"
+#include "UIButton.h"
+#include "UICheckBox.h"
+#include "UIImageView.h"
+#include "UILabel.h"
+#include "UILabelAtlas.h"
+#include "UILabelBMFont.h"
+#include "UILoadingBar.h"
+#include "UISlider.h"
+#include "UITextField.h"
+#include "UILayout.h"
+#include "UIListView.h"
+#include "UIPageView.h"
+#include "UIScrollView.h"
 
-//class type define
-NS_CC_BEGIN
-//
-namespace ui {
   
 typedef cocos2d::ui::Layout UIPanel;
 typedef cocos2d::ui::Layout UILayout;
@@ -51,8 +47,6 @@ typedef cocos2d::ui::RelativeAlign UIRelativeAlign;
 typedef cocos2d::ui::LayoutParameter UILayoutParameter;
 typedef cocos2d::ui::LinearLayoutParameter UILinearLayoutParameter;
 typedef cocos2d::ui::RelativeLayoutParameter UIRelativeLayoutParameter;
-}
-NS_CC_END
 
 
 #endif /* defined(__CompatibleClasses__) */

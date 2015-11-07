@@ -25,7 +25,7 @@
 #ifndef __UIRICHTEXT_H__
 #define __UIRICHTEXT_H__
 
-#include "../BaseClasses/UIWidget.h"
+#include "UIWidget.h"
 
 NS_CC_BEGIN
 
@@ -37,7 +37,7 @@ typedef enum {
     RICH_CUSTOM
 }RichElementType;
     
-class CC_EX_DLL RichElement : public CCObject
+class CC_DLL RichElement : public CCObject
 {
 public:
     RichElement(){};
@@ -51,7 +51,7 @@ protected:
     friend class RichText;
 };
     
-class CC_EX_DLL RichElementText : public RichElement
+class CC_DLL RichElementText : public RichElement
 {
 public:
     RichElementText(){_type = RICH_TEXT;};
@@ -66,7 +66,7 @@ protected:
     
 };
     
-class CC_EX_DLL RichElementImage : public RichElement
+class CC_DLL RichElementImage : public RichElement
 {
 public:
     RichElementImage(){_type = RICH_IMAGE;};
@@ -80,7 +80,7 @@ protected:
     friend class RichText;
 };
     
-class CC_EX_DLL RichElementCustomNode : public RichElement
+class CC_DLL RichElementCustomNode : public RichElement
 {
 public:
     RichElementCustomNode(){_type = RICH_CUSTOM;};
@@ -92,7 +92,7 @@ protected:
     friend class RichText;
 };
     
-class CC_EX_DLL RichText : public Widget
+class CC_DLL RichText : public Widget
 {
 public:
     RichText();

@@ -27,7 +27,7 @@
 #define __CCEDITTEXT_H__
 
 #include "cocos2d.h"
-#include "../CCControlExtension/CCControlExtensions.h"
+#include "CCControlButton.h"
 
 NS_CC_BEGIN
 

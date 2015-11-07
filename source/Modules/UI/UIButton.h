@@ -25,7 +25,7 @@
 #ifndef __UIBUTTON_H__
 #define __UIBUTTON_H__
 
-#include "../BaseClasses/UIWidget.h"
+#include "UIWidget.h"
 
 NS_CC_BEGIN
 
@@ -35,7 +35,7 @@ namespace ui{
 *   @js NA
 *   @lua NA
 */
-class CC_EX_DLL Button : public Widget
+class CC_DLL Button : public Widget
 {
     DECLARE_CLASS_GUI_INFO
     

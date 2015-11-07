@@ -25,30 +25,30 @@
 #ifndef __COCOSGUI_H__
 #define __COCOSGUI_H__
 
+#include "CCPlatformDefine.h"
 
-#include "../BaseClasses/UIWidget.h"
-#include "../Layouts/UILayout.h"
-#include "../UIWidgets/UIButton.h"
-#include "../UIWidgets/UICheckBox.h"
-#include "../UIWidgets/UIImageView.h"
-#include "../UIWidgets/UILabel.h"
-#include "../UIWidgets/UILabelAtlas.h"
-#include "../UIWidgets/UILoadingBar.h"
-#include "../UIWidgets/ScrollWidget/UIScrollView.h"
-#include "../UIWidgets/UISlider.h"
-#include "../UIWidgets/UITextField.h"
-#include "../UIWidgets/ScrollWidget/UIListView.h"
-#include "../UIWidgets/UILabelBMFont.h"
-#include "../UIWidgets/ScrollWidget/UIPageView.h"
+#include "UIWidget.h"
+#include "UILayout.h"
+#include "UIButton.h"
+#include "UICheckBox.h"
+#include "UIImageView.h"
+#include "UILabel.h"
+#include "UILabelAtlas.h"
+#include "UILoadingBar.h"
+#include "UIScrollView.h"
+#include "UISlider.h"
+#include "UITextField.h"
+#include "UIListView.h"
+#include "UILabelBMFont.h"
+#include "UIPageView.h"
 #include "UIHelper.h"
-#include "../../Reader/GUIReader.h"
 #include "UITouchGroup.h"
-#include "../UIWidgets/Compatible/CompatibleClasses.h"
-#include "../UIWidgets/UIRichText.h"
+#include "CompatibleClasses.h"
+#include "UIRichText.h"
 
 //NS_CC_EXT_BEGIN
 
-CC_EX_DLL const char* CocosGUIVersion();
+CC_DLL const char* CocosGUIVersion();
 
 //NS_CC_EXT_END
 

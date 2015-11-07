@@ -26,9 +26,9 @@
 #define __UIWIDGET_H__
 
 #include "cocos2d.h"
-#include "../Layouts/UILayoutDefine.h"
-#include "../Layouts/UILayoutParameter.h"
-#include "../System/GUIDefine.h"
+#include "UILayoutDefine.h"
+#include "UILayoutParameter.h"
+#include "GUIDefine.h"
 
 NS_CC_BEGIN
 
@@ -79,7 +79,7 @@ typedef void (CCObject::*SEL_TouchEvent)(CCObject*,TouchEventType);
 *   @js NA
 *   @lua NA
 */
-class CC_EX_DLL Widget : public CCNode
+class CC_DLL Widget : public CCNode
 {
 public:    
     /**

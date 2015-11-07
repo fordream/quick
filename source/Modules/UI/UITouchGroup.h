@@ -27,8 +27,7 @@
 #define __UILAYER_H__
 
 #include "cocos2d.h"
-#include "ExtensionMacros.h"
-#include "../BaseClasses/UIWidget.h"
+#include "UIWidget.h"
 
 NS_CC_BEGIN
 
@@ -37,7 +36,7 @@ namespace ui {
 /**
  *  @lua NA
  */
-class CC_EX_DLL TouchGroup : public CCLayer
+class CC_DLL TouchGroup : public CCLayer
 {
     
 public:

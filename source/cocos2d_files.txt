@@ -38,12 +38,12 @@ Core/touch_dispatcher/CCTouchTargetNode.cpp
 )
 
 file (GLOB MODULE_SOURCE_FILES 
-    Audio/win32/*.cpp
-    EditBox/*.cpp
-    Particle/*.cpp
-    ScrollView/*.cpp
-    TileMap/*.cpp
-    UI/*.cpp
+    Modules/Audio/win32/*.cpp
+    Modules/EditBox/*.cpp
+    Modules/Particle/*.cpp
+    Modules/ScrollView/*.cpp
+    Modules/TileMap/*.cpp
+    Modules/UI/*.cpp
 )
 
 list(APPEND SOURCE_FILES ${MODULE_SOURCE_FILES})

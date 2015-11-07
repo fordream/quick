@@ -25,7 +25,7 @@
 #ifndef __UICHECKBOX_H__
 #define __UICHECKBOX_H__
 
-#include "../BaseClasses/UIWidget.h"
+#include "UIWidget.h"
 
 NS_CC_BEGIN
 
@@ -44,7 +44,7 @@ typedef void (CCObject::*SEL_SelectedStateEvent)(CCObject*,CheckBoxEventType);
 *   @js NA
 *   @lua NA
 */
-class CC_EX_DLL CheckBox : public Widget
+class CC_DLL CheckBox : public Widget
 {
     DECLARE_CLASS_GUI_INFO
     

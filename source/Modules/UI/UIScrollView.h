@@ -25,14 +25,14 @@
 #ifndef __UISCROLLVIEW_H__
 #define __UISCROLLVIEW_H__
 
-#include "../../Layouts/UILayout.h"
+#include "UILayout.h"
 #include "UIScrollInterface.h"
 
 NS_CC_BEGIN
 
 namespace ui {
     
-class CC_EX_DLL ScrollInnerContainer : public Layout
+class CC_DLL ScrollInnerContainer : public Layout
 {
 public:
     ScrollInnerContainer();
@@ -67,7 +67,7 @@ typedef void (CCObject::*SEL_ScrollViewEvent)(CCObject*, ScrollviewEventType);
 #define scrollvieweventselector(_SELECTOR) (SEL_ScrollViewEvent)(&_SELECTOR)
 
 
-class CC_EX_DLL ScrollView : public Layout , public UIScrollInterface
+class CC_DLL ScrollView : public Layout , public UIScrollInterface
 {
     
     DECLARE_CLASS_GUI_INFO

@@ -3,7 +3,7 @@
 #define  _APP_DELEGATE_H_
 
 #include "CCApplication.h"
-#include "ProjectConfig/SimulatorConfig.h"
+#include "cocos2d-x/ProjectConfig/SimulatorConfig.h"
 
 class StartupCall;
 

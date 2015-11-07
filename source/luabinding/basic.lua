@@ -260,6 +260,27 @@ local CCObjectTypes = {
     "CCWaves",
     "CCWaves3D",
     "CCWavesTiles3D",
+
+    "Button",
+    "CheckBox",
+    "ImageView",
+    "Label",
+    "LabelAtlas",
+    "LabelBMFont",
+    "Layout",
+    "LayoutDefine",
+    "LayoutParameter",
+    "LinearLayoutParameter",
+    "ListView",
+    "LoadingBar",
+    "PageView",
+    "RelativeLayoutParameter",
+    "RichText",
+    "ScrollView",
+    "Slider",
+    "TextField",
+    "TouchGroup",
+    "Widget",
 }
 
 -- register CCObject types
@@ -351,9 +372,11 @@ extern "C" {
 #include <string>
 #include "cocos2d.h"
 #include "CCLuaEngine.h"
-#include "SimpleAudioEngine.h"
+#include "Modules/UI/CocosGUI.h"
+#include "Audio/SimpleAudioEngine.h"
 
 using namespace cocos2d;
+using namespace ui;
 using namespace CocosDenshion;]])
 
     replace([[/* Exported function */

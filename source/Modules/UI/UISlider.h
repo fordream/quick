@@ -25,7 +25,7 @@
 #ifndef __UISLIDER_H__
 #define __UISLIDER_H__
 
-#include "../BaseClasses/UIWidget.h"
+#include "UIWidget.h"
 
 NS_CC_BEGIN
 
@@ -43,7 +43,7 @@ typedef void (CCObject::*SEL_SlidPercentChangedEvent)(CCObject*,SliderEventType)
 *   @js NA
 *   @lua NA
 */
-class CC_EX_DLL Slider : public Widget
+class CC_DLL Slider : public Widget
 {
     
     DECLARE_CLASS_GUI_INFO

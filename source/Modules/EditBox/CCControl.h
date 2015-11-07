@@ -30,13 +30,36 @@
 #ifndef __CCCONTROL_H__
 #define __CCCONTROL_H__
 
-#include "CCInvocation.h"
-#include "CCControlUtils.h"
 #include "cocos2d.h"
 
 NS_CC_BEGIN
 
-class CCInvocation;
+
+
+// CCInvocation
+
+typedef unsigned int CCControlEvent;
+typedef void (CCObject::*SEL_CCControlHandler)(CCObject*, CCControlEvent);
+
+#define cccontrol_selector(_SELECTOR) (SEL_CCControlHandler)(&_SELECTOR)
+
+/**
+* @js NA
+* @lua NA
+*/
+class CC_DLL CCInvocation : public CCObject
+{
+    CC_SYNTHESIZE_READONLY(SEL_CCControlHandler, m_action, Action);
+    CC_SYNTHESIZE_READONLY(CCObject*, m_target, Target);
+    CC_SYNTHESIZE_READONLY(CCControlEvent, m_controlEvent, ControlEvent);
+
+public:
+    static CCInvocation* create(CCObject* target, SEL_CCControlHandler action, CCControlEvent controlEvent);
+    CCInvocation(CCObject* target, SEL_CCControlHandler action, CCControlEvent controlEvent);
+
+    void invoke(CCObject* sender);
+};
+//
 
 /**
  * @addtogroup GUI

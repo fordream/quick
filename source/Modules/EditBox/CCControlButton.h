@@ -31,10 +31,52 @@
 #define __CCCONTROL_BUTTON_H__
 
 #include "CCControl.h"
-#include "CCInvocation.h"
-#include "CCScale9Sprite.h"
+#include "sprite_nodes/CCScale9Sprite.h"
 
 NS_CC_BEGIN
+
+// controlutils
+typedef struct
+{
+    double r;       // percent
+    double g;       // percent
+    double b;       // percent
+    double a;       // percent
+} RGBA;
+
+typedef struct
+{
+    double h;       // angle in degrees
+    double s;       // percent
+    double v;       // percent
+} HSV;
+
+/**
+* @addtogroup GUI
+* @{
+* @addtogroup control_extension
+* @{
+*/
+
+/**helper class to store ccColor3B's in mutable arrays
+* @js NA
+* @lua NA
+**/
+class CC_DLL CCColor3bObject : public CCObject
+{
+public:
+    ccColor3B value;
+    CCColor3bObject(ccColor3B s_value) :value(s_value){}
+};
+
+class CC_DLL CCControlUtils
+{
+public:
+    static CCSprite* addSpriteToTargetWithPosAndAnchor(const char* spriteName, CCNode * target, CCPoint pos, CCPoint anchor);
+    static HSV HSVfromRGB(RGBA value);
+    static RGBA RGBfromHSV(HSV value);
+    static CCRect CCRectUnion(const CCRect& src1, const CCRect& src2);
+};
 
 /* Define the button margin for Left/Right edge */
 #define CCControlButtonMarginLR 8 // px

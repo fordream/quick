@@ -25,7 +25,7 @@
 #ifndef __UILOADINGBAR_H__
 #define __UILOADINGBAR_H__
 
-#include "../BaseClasses/UIWidget.h"
+#include "UIWidget.h"
 
 NS_CC_BEGIN
 
@@ -40,7 +40,7 @@ typedef enum
 *   @js NA
 *   @lua NA
 */
-class CC_EX_DLL LoadingBar : public Widget
+class CC_DLL LoadingBar : public Widget
 {
     
     DECLARE_CLASS_GUI_INFO

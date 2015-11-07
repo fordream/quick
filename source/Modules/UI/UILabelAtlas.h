@@ -25,7 +25,7 @@
 #ifndef __UILABELATLAS_H__
 #define __UILABELATLAS_H__
 
-#include "../BaseClasses/UIWidget.h"
+#include "UIWidget.h"
 
 NS_CC_BEGIN
 
@@ -35,7 +35,7 @@ namespace ui {
  *   @js NA
  *   @lua NA
  */
-class CC_EX_DLL UICCLabelAtlas : public CCLabelAtlas
+class CC_DLL UICCLabelAtlas : public CCLabelAtlas
 {
 public:
     /**
@@ -61,7 +61,7 @@ public:
  *   @js NA
  *   @lua NA
  */
-class CC_EX_DLL LabelAtlas : public Widget
+class CC_DLL LabelAtlas : public Widget
 {
     DECLARE_CLASS_GUI_INFO
     

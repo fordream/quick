@@ -26,7 +26,7 @@
 #define __UILAYOUTDEFINE_H__
 
 #include "cocos2d.h"
-#include "ExtensionExport.h"
+
 
 NS_CC_BEGIN
 
@@ -35,7 +35,7 @@ namespace ui {
 *   @js NA
 *   @lua NA
 */
-class CC_EX_DLL Margin
+class CC_DLL Margin
 {
 public:
     float left;
