@@ -116,13 +116,11 @@ printInfo("#")
 device     = require(cc.PACKAGE_NAME .. ".device")
 transition = require(cc.PACKAGE_NAME .. ".transition")
 display    = require(cc.PACKAGE_NAME .. ".display")
-filter     = require(cc.PACKAGE_NAME .. ".filter")
 audio      = require(cc.PACKAGE_NAME .. ".audio")
 ui         = require(cc.PACKAGE_NAME .. ".ui")
 network    = require(cc.PACKAGE_NAME .. ".network")
 crypto     = require(cc.PACKAGE_NAME .. ".crypto")
 json       = require(cc.PACKAGE_NAME .. ".json")
-dragonbones= require(cc.PACKAGE_NAME .. ".dragonbones")
 
 if device.platform == "android" then
     require(cc.PACKAGE_NAME .. ".platform.android")
@@ -135,10 +133,6 @@ end
 require(cc.PACKAGE_NAME .. ".porting.v3porting")
 
 require(cc.PACKAGE_NAME .. ".cc.init")
-
-if LOAD_DEPRECATED_API then
-    require(cc.PACKAGE_NAME .. ".deprecated")
-end
 
 if LOAD_SHORTCODES_API then
     require(cc.PACKAGE_NAME .. ".shortcodes")

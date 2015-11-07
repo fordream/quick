@@ -65,12 +65,3 @@ cc.mvc = import(".mvc.init")
 
 -- load more library
 cc.ui = import(".ui.init")
-
--- load extensions
-cc.ad = import(".ad.init").new()
-cc.push = import(".push.init").new()
-cc.analytics = import(".analytics.init").new()
-cc.share = import(".share.init").new()
-cc.feedback = import(".feedback.init").new()
-cc.update = import(".update.init").new()
-cc.uiloader = import(".uiloader.init").new()
