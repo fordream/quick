@@ -372,8 +372,11 @@ extern "C" {
 #include <string>
 #include "cocos2d.h"
 #include "CCLuaEngine.h"
+
+#include "Modules/ScrollView/CCTableView.h"
+#include "Modules/EditBox/CCEditBox.h"
 #include "Modules/UI/CocosGUI.h"
-#include "Audio/SimpleAudioEngine.h"
+#include "Modules/Audio/SimpleAudioEngine.h"
 
 using namespace cocos2d;
 using namespace ui;

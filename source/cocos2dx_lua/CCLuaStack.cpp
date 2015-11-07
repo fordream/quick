@@ -86,8 +86,6 @@ extern "C" {
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
 #include "cocos2dx_extra_ios_iap_luabinding.h"
 #endif
-// WebSockets luabinding
-#include "Lua_web_socket.h"
 // lua extensions
 #include "lua_extensions.h"
 
