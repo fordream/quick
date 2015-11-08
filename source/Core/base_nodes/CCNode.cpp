@@ -35,13 +35,13 @@
 #include "touch_dispatcher/CCTouch.h"
 #include "touch_dispatcher/CCTouchDispatcher.h"
 #include "actions/CCActionManager.h"
-#include "script_support/CCScriptSupport.h"
 #include "shaders/CCGLProgram.h"
 #include "layers_scenes_transitions_nodes/CCScene.h"
 // externals
 #include "kazmath/GL/matrix.h"
 #include "support/component/CCComponent.h"
 #include "support/component/CCComponentContainer.h"
+#include "CCLuaEngine.h"
 
 #if CC_NODE_RENDER_SUBPIXEL
 #define RENDER_IN_SUBPIXEL
@@ -634,7 +634,7 @@ void CCNode::cleanup()
 
     if (m_scriptEventListeners)
     {
-        CCScriptEngineManager::sharedManager()->getScriptEngine()->executeNodeEvent(this, kCCNodeOnCleanup);
+        CCLuaEngine::defaultEngine()->executeNodeEvent(this, kCCNodeOnCleanup);
     }
 }
 
@@ -1005,7 +1005,7 @@ void CCNode::onEnter()
 
     if (m_scriptEventListeners)
     {
-        CCScriptEngineManager::sharedManager()->getScriptEngine()->executeNodeEvent(this, kCCNodeOnEnter);
+        CCLuaEngine::defaultEngine()->executeNodeEvent(this, kCCNodeOnEnter);
     }
 
     //Judge the running state for prevent called onEnter method more than once,it's possible that this function called by addChild
@@ -1032,7 +1032,7 @@ void CCNode::onEnterTransitionDidFinish()
 
     if (m_scriptEventListeners)
     {
-        CCScriptEngineManager::sharedManager()->getScriptEngine()->executeNodeEvent(this, kCCNodeOnEnterTransitionDidFinish);
+        CCLuaEngine::defaultEngine()->executeNodeEvent(this, kCCNodeOnEnterTransitionDidFinish);
     }
 }
 
@@ -1040,7 +1040,7 @@ void CCNode::onExitTransitionDidStart()
 {
     if (m_scriptEventListeners)
     {
-        CCScriptEngineManager::sharedManager()->getScriptEngine()->executeNodeEvent(this, kCCNodeOnExitTransitionDidStart);
+        CCLuaEngine::defaultEngine()->executeNodeEvent(this, kCCNodeOnExitTransitionDidStart);
     }
 
     arrayMakeObjectsPerformSelector(m_pChildren, onExitTransitionDidStart, CCNode*);
@@ -1061,7 +1061,7 @@ void CCNode::onExit()
 
     if (m_scriptEventListeners)
     {
-        CCScriptEngineManager::sharedManager()->getScriptEngine()->executeNodeEvent(this, kCCNodeOnExit);
+        CCLuaEngine::defaultEngine()->executeNodeEvent(this, kCCNodeOnExit);
     }
 }
 
@@ -1200,7 +1200,7 @@ void CCNode::update(float fDelta)
 {
     if (m_scriptEventListeners)
     {
-        CCScriptEngineManager::sharedManager()->getScriptEngine()->executeNodeEnterFrameEvent(this, fDelta);
+        CCLuaEngine::defaultEngine()->executeNodeEnterFrameEvent(this, fDelta);
     }
 
     if (m_pComponentContainer && !m_pComponentContainer->isEmpty())
@@ -1824,12 +1824,12 @@ void CCNode::ccTouchesRemoved(CCSet *pTouches, CCEvent *pEvent)
 
 int CCNode::executeScriptTouchHandler(int nEventType, CCTouch *pTouch, int phase /* = NODE_TOUCH_TARGETING_PHASE */)
 {
-    return CCScriptEngineManager::sharedManager()->getScriptEngine()->executeNodeTouchEvent(this, nEventType, pTouch, phase);
+    return CCLuaEngine::defaultEngine()->executeNodeTouchEvent(this, nEventType, pTouch, phase);
 }
 
 int CCNode::executeScriptTouchHandler(int nEventType, CCSet *pTouches, int phase /* = NODE_TOUCH_TARGETING_PHASE */)
 {
-    return CCScriptEngineManager::sharedManager()->getScriptEngine()->executeNodeTouchesEvent(this, nEventType, pTouches, phase);
+    return CCLuaEngine::defaultEngine()->executeNodeTouchesEvent(this, nEventType, pTouches, phase);
 }
 
 NS_CC_END

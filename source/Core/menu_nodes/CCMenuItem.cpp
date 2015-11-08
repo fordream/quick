@@ -30,9 +30,9 @@
 #include "sprite_nodes/CCSprite.h"
 #include "label_nodes/CCLabelAtlas.h"
 #include "label_nodes/CCLabelTTF.h"
-#include "script_support/CCScriptSupport.h"
 #include <stdarg.h>
 #include <cstring>
+#include "CCLuaEngine.h"
 
 NS_CC_BEGIN
 
@@ -98,7 +98,7 @@ void CCMenuItem::activate()
 
         if (m_scriptEventListeners)
         {
-            CCScriptEngineManager::sharedManager()->getScriptEngine()->executeMenuItemEvent(this);
+            CCLuaEngine::defaultEngine()->executeMenuItemEvent(this);
         }
     }
 }

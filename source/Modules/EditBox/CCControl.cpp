@@ -31,6 +31,7 @@
 #include "CCDirector.h"
 #include "touch_dispatcher/CCTouchDispatcher.h"
 #include "touch_dispatcher/CCTouch.h"
+#include "CCLuaEngine.h"
 
 NS_CC_BEGIN
 
@@ -150,7 +151,7 @@ void CCControl::sendActionsForControlEvents(CCControlEvent controlEvents)
             int nHandler = this->getHandleOfControlEvent(controlEvents);
             if (-1 != nHandler)
             {
-                CCScriptEngineManager::sharedManager()->getScriptEngine()->executeEvent(nHandler,"",this);
+                CCLuaEngine::defaultEngine()->executeEvent(nHandler, "", this);
             }
         }
     }

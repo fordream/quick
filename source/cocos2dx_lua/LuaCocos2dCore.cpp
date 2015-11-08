@@ -1,6 +1,6 @@
 /*
 ** Lua binding: Core
-** Generated automatically by tolua++-1.0.92 on 11/07/15 20:05:38.
+** Generated automatically by tolua++-1.0.92 on 11/08/15 18:06:57.
 */
 
 /****************************************************************************
@@ -40384,77 +40384,6 @@ static int tolua_Core_CCScheduler_unscheduleAllWithMinPriority00(lua_State* tolu
 }
 #endif //#ifndef TOLUA_DISABLE
 
-/* method: scheduleScriptFunc of class  CCScheduler */
-#ifndef TOLUA_DISABLE_tolua_Core_CCScheduler_scheduleScriptFunc00
-static int tolua_Core_CCScheduler_scheduleScriptFunc00(lua_State* tolua_S)
-{
-#ifndef TOLUA_RELEASE
- tolua_Error tolua_err;
- if (
-     !tolua_isusertype(tolua_S,1,"CCScheduler",0,&tolua_err) ||
-     (tolua_isvaluenil(tolua_S,2,&tolua_err) || !toluafix_isfunction(tolua_S,2,"LUA_FUNCTION",0,&tolua_err)) ||
-     !tolua_isnumber(tolua_S,3,0,&tolua_err) ||
-     !tolua_isboolean(tolua_S,4,0,&tolua_err) ||
-     !tolua_isnoobj(tolua_S,5,&tolua_err)
- )
-  goto tolua_lerror;
- else
-#endif
- {
-  CCScheduler* self = (CCScheduler*)  tolua_tousertype(tolua_S,1,0);
-  LUA_FUNCTION nHandler = (  toluafix_ref_function(tolua_S,2,0));
-  float fInterval = ((float)  tolua_tonumber(tolua_S,3,0));
-  bool bPaused = ((bool)  tolua_toboolean(tolua_S,4,0));
-#ifndef TOLUA_RELEASE
-  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'scheduleScriptFunc'", NULL);
-#endif
-  {
-   unsigned int tolua_ret = (unsigned int)  self->scheduleScriptFunc(nHandler,fInterval,bPaused);
-   tolua_pushnumber(tolua_S,(lua_Number)tolua_ret);
-  }
- }
- return 1;
-#ifndef TOLUA_RELEASE
- tolua_lerror:
- tolua_error(tolua_S,"#ferror in function 'scheduleScriptFunc'.",&tolua_err);
- return 0;
-#endif
-}
-#endif //#ifndef TOLUA_DISABLE
-
-/* method: unscheduleScriptEntry of class  CCScheduler */
-#ifndef TOLUA_DISABLE_tolua_Core_CCScheduler_unscheduleScriptEntry00
-static int tolua_Core_CCScheduler_unscheduleScriptEntry00(lua_State* tolua_S)
-{
-#ifndef TOLUA_RELEASE
- tolua_Error tolua_err;
- if (
-     !tolua_isusertype(tolua_S,1,"CCScheduler",0,&tolua_err) ||
-     !tolua_isnumber(tolua_S,2,0,&tolua_err) ||
-     !tolua_isnoobj(tolua_S,3,&tolua_err)
- )
-  goto tolua_lerror;
- else
-#endif
- {
-  CCScheduler* self = (CCScheduler*)  tolua_tousertype(tolua_S,1,0);
-  unsigned int uScheduleScriptEntryID = ((unsigned int)  tolua_tonumber(tolua_S,2,0));
-#ifndef TOLUA_RELEASE
-  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'unscheduleScriptEntry'", NULL);
-#endif
-  {
-   self->unscheduleScriptEntry(uScheduleScriptEntryID);
-  }
- }
- return 0;
-#ifndef TOLUA_RELEASE
- tolua_lerror:
- tolua_error(tolua_S,"#ferror in function 'unscheduleScriptEntry'.",&tolua_err);
- return 0;
-#endif
-}
-#endif //#ifndef TOLUA_DISABLE
-
 /* method: pauseTarget of class  CCScheduler */
 #ifndef TOLUA_DISABLE_tolua_Core_CCScheduler_pauseTarget00
 static int tolua_Core_CCScheduler_pauseTarget00(lua_State* tolua_S)
@@ -43190,8 +43119,6 @@ TOLUA_API int tolua_Core_open (lua_State* tolua_S)
    tolua_function(tolua_S,"unscheduleAllForTarget",tolua_Core_CCScheduler_unscheduleAllForTarget00);
    tolua_function(tolua_S,"unscheduleAll",tolua_Core_CCScheduler_unscheduleAll00);
    tolua_function(tolua_S,"unscheduleAllWithMinPriority",tolua_Core_CCScheduler_unscheduleAllWithMinPriority00);
-   tolua_function(tolua_S,"scheduleScriptFunc",tolua_Core_CCScheduler_scheduleScriptFunc00);
-   tolua_function(tolua_S,"unscheduleScriptEntry",tolua_Core_CCScheduler_unscheduleScriptEntry00);
    tolua_function(tolua_S,"pauseTarget",tolua_Core_CCScheduler_pauseTarget00);
    tolua_function(tolua_S,"resumeTarget",tolua_Core_CCScheduler_resumeTarget00);
    tolua_function(tolua_S,"isTargetPaused",tolua_Core_CCScheduler_isTargetPaused00);

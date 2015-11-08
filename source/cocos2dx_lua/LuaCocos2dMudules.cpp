@@ -1,6 +1,6 @@
 /*
 ** Lua binding: Modules
-** Generated automatically by tolua++-1.0.92 on 11/07/15 20:05:39.
+** Generated automatically by tolua++-1.0.92 on 11/08/15 18:06:58.
 */
 
 /****************************************************************************

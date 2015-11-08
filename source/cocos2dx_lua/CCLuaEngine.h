@@ -33,8 +33,6 @@ extern "C" {
 #include "cocoa/CCObject.h"
 #include "touch_dispatcher/CCTouch.h"
 #include "cocoa/CCSet.h"
-#include "base_nodes/CCNode.h"
-#include "script_support/CCScriptSupport.h"
 #include "CCLuaStack.h"
 #include "CCLuaValue.h"
 
@@ -45,16 +43,18 @@ NS_CC_BEGIN
  *  @lua NA
  */
 
+class CCMenuItem;
+class CCNode;
+class CCLayer;
+class CCCallFunc;
+class CCNotificationCenter;
+class CCAcceleration;
 
-class CC_DLL CCLuaEngine : public CCScriptEngineProtocol
+class CC_DLL CCLuaEngine
 {
 public:
     static CCLuaEngine* defaultEngine(void);
     virtual ~CCLuaEngine(void);
-
-    virtual ccScriptType getScriptType() {
-        return kScriptTypeLua;
-    };
 
     CCLuaStack *getLuaStack(void) {
         return m_stack;
@@ -128,7 +128,6 @@ public:
     virtual int executeEventWithArgs(int nHandler, CCArray* pArgs);
 
     virtual bool handleAssert(const char *msg);
-    virtual bool parseConfig(CCScriptEngineProtocol::ConfigType type, const std::string& str);
 
 private:
     CCLuaEngine(void)

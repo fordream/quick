@@ -25,6 +25,8 @@
  ****************************************************************************/
 
 #include "CCTouchTargetNode.h"
+#include "cocoa/CCSet.h"
+#include "CCTouch.h"
 
 
 NS_CC_BEGIN

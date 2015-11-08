@@ -24,7 +24,6 @@ Core/keypad_dispatcher/CCKeypadDelegate.cpp
 Core/keypad_dispatcher/CCKeypadDispatcher.cpp
 Core/menu_nodes/CCMenu.cpp
 Core/menu_nodes/CCMenuItem.cpp
-Core/script_support/CCScriptSupport.cpp
 Core/shaders/CCGLProgram.cpp
 Core/shaders/ccGLStateCache.cpp
 Core/shaders/CCShaderCache.cpp

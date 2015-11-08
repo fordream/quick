@@ -24,6 +24,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 ****************************************************************************/
 #include "CCPlatformMacros.h"
+#include "CCLuaEngine.h"
 
 
 NS_CC_BEGIN
@@ -35,3 +36,9 @@ const char* cocos2dVersion()
 
 NS_CC_END
 
+bool CC_DLL cc_assert_script_compatible(const char *msg)
+{
+    cocos2d::CCLuaEngine::defaultEngine()->handleAssert(msg);
+
+    return true;
+}

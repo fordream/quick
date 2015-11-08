@@ -141,9 +141,6 @@ THE SOFTWARE.
 #include "platform/CCEGLView.h"
 #include "platform/CCAccelerometer.h"
 
-// script_support
-#include "script_support/CCScriptSupport.h"
-
 // shaders
 #include "shaders/CCGLProgram.h"
 #include "shaders/ccGLStateCache.h"

@@ -28,8 +28,9 @@
 #include "touch_dispatcher/CCTouchDispatcher.h"
 #include "touch_dispatcher/CCTouchTargetNode.h"
 #include "support/CCPointExtension.h"
-#include "script_support/CCScriptSupport.h"
 #include "CCDirector.h"
+#include "cocoa/CCSet.h"
+#include "touch_dispatcher/CCTouch.h"
 
 NS_CC_BEGIN
 

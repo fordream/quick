@@ -31,7 +31,7 @@ public:
             int nHandler = view->getScriptHandler(CCScrollView::kScrollViewScroll);
             if (0 != nHandler)
             {
-                CCScriptEngineManager::sharedManager()->getScriptEngine()->executeEvent(nHandler, "");
+                CCLuaEngine::defaultEngine()->executeEvent(nHandler, "");
             }
         }
     }
@@ -43,7 +43,7 @@ public:
             int nHandler = view->getScriptHandler(CCScrollView::kScrollViewZoom);
             if (-1 != nHandler)
             {
-                CCScriptEngineManager::sharedManager()->getScriptEngine()->executeEvent(nHandler,"");
+                CCLuaEngine::defaultEngine()->executeEvent(nHandler, "");
             }
         }
     }

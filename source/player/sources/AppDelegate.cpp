@@ -33,7 +33,6 @@ bool AppDelegate::applicationDidFinishLaunching()
 
 	// register lua engine
 	CCLuaEngine *pEngine = CCLuaEngine::defaultEngine();
-	CCScriptEngineManager::sharedManager()->setScriptEngine(pEngine);
 
 	CCLuaStack *pStack = pEngine->getLuaStack();
 

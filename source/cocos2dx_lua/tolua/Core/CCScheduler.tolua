@@ -92,10 +92,6 @@ class CCScheduler : public CCObject
      If 'interval' is 0, it will be called every frame.
      return schedule script entry ID, used for unscheduleScriptFunc().
      */
-    unsigned int scheduleScriptFunc(LUA_FUNCTION nHandler, float fInterval, bool bPaused);
-
-    /** Unschedule a script entry. */
-    void unscheduleScriptEntry(unsigned int uScheduleScriptEntryID);
 
     /** Pauses the target.
      All scheduled selectors/update for a given target won't be 'ticked' until the target is resumed.

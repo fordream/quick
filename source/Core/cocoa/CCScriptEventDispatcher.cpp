@@ -25,7 +25,7 @@
 #include <algorithm>
 
 #include "CCScriptEventDispatcher.h"
-#include "script_support/CCScriptSupport.h"
+#include "CCLuaEngine.h"
 
 NS_CC_BEGIN
 
@@ -63,7 +63,6 @@ void CCScriptEventDispatcher::removeScriptEventListener(unsigned int handle)
 {
     if (!m_scriptEventListeners) return;
 
-    CCScriptEngineProtocol *engine = CCScriptEngineManager::sharedManager()->getScriptEngine();
     unsigned int c = m_scriptEventListeners->count();
     CCScriptHandlePair *p;
     for (unsigned int i = 0; i < c; ++i)
@@ -73,7 +72,7 @@ void CCScriptEventDispatcher::removeScriptEventListener(unsigned int handle)
         if (!p->removed)
         {
             p->removed = true;
-            engine->removeScriptHandler(p->listener);
+            CCLuaEngine::defaultEngine()->removeScriptHandler(p->listener);
             break;
         }
     }
@@ -83,7 +82,6 @@ void CCScriptEventDispatcher::removeScriptEventListenersByEvent(int event)
 {
     if (!m_scriptEventListeners) return;
 
-    CCScriptEngineProtocol *engine = CCScriptEngineManager::sharedManager()->getScriptEngine();
     unsigned int c = m_scriptEventListeners->count();
     CCScriptHandlePair *p;
     for (unsigned int i = 0; i < c; ++i)
@@ -92,7 +90,7 @@ void CCScriptEventDispatcher::removeScriptEventListenersByEvent(int event)
         if (!p->removed && p->event == event)
         {
             p->removed = true;
-            engine->removeScriptHandler(p->listener);
+            CCLuaEngine::defaultEngine()->removeScriptHandler(p->listener);
         }
     }
 }
@@ -101,7 +99,6 @@ void CCScriptEventDispatcher::removeScriptEventListenersByTag(int tag)
 {
     if (!m_scriptEventListeners) return;
 
-    CCScriptEngineProtocol *engine = CCScriptEngineManager::sharedManager()->getScriptEngine();
     unsigned int c = m_scriptEventListeners->count();
     CCScriptHandlePair *p;
     for (unsigned int i = 0; i < c; ++i)
@@ -110,7 +107,7 @@ void CCScriptEventDispatcher::removeScriptEventListenersByTag(int tag)
         if (!p->removed && p->tag == tag)
         {
             p->removed = true;
-            engine->removeScriptHandler(p->listener);
+            CCLuaEngine::defaultEngine()->removeScriptHandler(p->listener);
         }
     }
 }
@@ -119,7 +116,6 @@ void CCScriptEventDispatcher::removeAllScriptEventListeners()
 {
     if (!m_scriptEventListeners) return;
 
-    CCScriptEngineProtocol *engine = CCScriptEngineManager::sharedManager()->getScriptEngine();
     unsigned int c = m_scriptEventListeners->count();
     CCScriptHandlePair *p;
     for (unsigned int i = 0; i < c; ++i)
@@ -128,7 +124,7 @@ void CCScriptEventDispatcher::removeAllScriptEventListeners()
         if (!p->removed)
         {
             p->removed = true;
-            engine->removeScriptHandler(p->listener);
+            CCLuaEngine::defaultEngine()->removeScriptHandler(p->listener);
         }
     }
 }

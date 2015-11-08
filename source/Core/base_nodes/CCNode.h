@@ -38,7 +38,6 @@
 #include "kazmath/kazmath.h"
 #include "CCProtocols.h"
 #include "touch_dispatcher/CCTouchDelegateProtocol.h"
-#include "script_support/CCScriptSupport.h"
 
 NS_CC_BEGIN
 

@@ -24,6 +24,7 @@
  ****************************************************************************/
 #include "CCEditBoxImplWin.h"
 #include <tchar.h>
+#include "CCLuaEngine.h"
 
 
 class CWin32InputBox;
@@ -674,8 +675,7 @@ void CCEditBoxImplWin::openKeyboard()
     CCEditBox* pEditBox = this->getCCEditBox();
     if (NULL != pEditBox && 0 != pEditBox->getScriptEditBoxHandler())
     {
-        cocos2d::CCScriptEngineProtocol* pEngine = cocos2d::CCScriptEngineManager::sharedManager()->getScriptEngine();
-        pEngine->executeEvent(pEditBox->getScriptEditBoxHandler(), "began",pEditBox);
+        CCLuaEngine::defaultEngine()->executeEvent(pEditBox->getScriptEditBoxHandler(), "began",pEditBox);
     }
     
 	std::string placeHolder = m_pLabelPlaceHolder->getString();
@@ -699,7 +699,7 @@ void CCEditBoxImplWin::openKeyboard()
 
     if (0 != pEditBox->getScriptEditBoxHandler())
     {
-        cocos2d::CCScriptEngineProtocol* pEngine = cocos2d::CCScriptEngineManager::sharedManager()->getScriptEngine();
+        CCLuaEngine* pEngine = CCLuaEngine::defaultEngine();
         if (didChange) pEngine->executeEvent(pEditBox->getScriptEditBoxHandler(), "changed",pEditBox);
         pEngine->executeEvent(pEditBox->getScriptEditBoxHandler(), "ended",pEditBox);
         pEngine->executeEvent(pEditBox->getScriptEditBoxHandler(), "return",pEditBox);

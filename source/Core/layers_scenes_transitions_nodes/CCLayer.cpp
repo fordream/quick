@@ -31,13 +31,13 @@
 #include "CCAccelerometer.h"
 #include "CCDirector.h"
 #include "support/CCPointExtension.h"
-#include "script_support/CCScriptSupport.h"
 #include "shaders/CCShaderCache.h"
 #include "shaders/CCGLProgram.h"
 #include "shaders/ccGLStateCache.h"
 #include "support/TransformUtils.h"
 // extern
 #include "kazmath/GL/matrix.h"
+#include "CCLuaEngine.h"
 
 NS_CC_BEGIN
 
@@ -131,7 +131,7 @@ void CCLayer::didAccelerate(CCAcceleration* pAccelerationValue)
     CC_UNUSED_PARAM(pAccelerationValue);
     if (m_scriptEventListeners)
     {
-        CCScriptEngineManager::sharedManager()->getScriptEngine()->executeAccelerometerEvent(this, pAccelerationValue);
+        CCLuaEngine::defaultEngine()->executeAccelerometerEvent(this, pAccelerationValue);
     }
 }
 
@@ -166,7 +166,7 @@ void CCLayer::keyBackClicked(void)
 {
     if (m_scriptEventListeners)
     {
-        CCScriptEngineManager::sharedManager()->getScriptEngine()->executeLayerKeypadEvent(this, kTypeBackClicked);
+        CCLuaEngine::defaultEngine()->executeLayerKeypadEvent(this, kTypeBackClicked);
     }
 }
 
@@ -174,7 +174,7 @@ void CCLayer::keyMenuClicked(void)
 {
     if (m_scriptEventListeners)
     {
-        CCScriptEngineManager::sharedManager()->getScriptEngine()->executeLayerKeypadEvent(this, kTypeMenuClicked);
+        CCLuaEngine::defaultEngine()->executeLayerKeypadEvent(this, kTypeMenuClicked);
     }
 }
 

@@ -36,7 +36,6 @@ THE SOFTWARE.
 #include "support/ccUtils.h"
 #include "CCScheduler.h"
 #include "cocoa/CCString.h"
-#include "script_support/CCScriptSupport.h"
 #include <errno.h>
 #include <stack>
 #include <string>
@@ -45,6 +44,7 @@ THE SOFTWARE.
 #include <list>
 #include "apptools/HelperFunc.h"
 #include "tinycthread.h"
+#include "CCLuaEngine.h"
 
 using namespace std;
 
@@ -286,7 +286,7 @@ void CCTextureCache::addImageAsyncImpl(const char *path, CCObject *target, SEL_C
         }
         if (handler)
         {
-            CCScriptEngineManager::sharedManager()->getScriptEngine()->executeEvent(handler, "addImageAsync", texture, "CCTexture2D");
+            CCLuaEngine::defaultEngine()->executeEvent(handler, "addImageAsync", texture, "CCTexture2D");
         }
         
         return;
@@ -391,7 +391,7 @@ void CCTextureCache::addImageAsyncCallBack(float dt)
         }        
         if (handler)
         {
-            CCScriptEngineManager::sharedManager()->getScriptEngine()->executeEvent(handler, "addImageAsync", texture, "CCTexture2D");
+            CCLuaEngine::defaultEngine()->executeEvent(handler, "addImageAsync", texture, "CCTexture2D");
         }
 
         pImage->release();

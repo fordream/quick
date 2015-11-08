@@ -25,6 +25,7 @@
 
 #include "CCEditBox.h"
 #include "CCEditBoxImpl.h"
+#include "CCLuaEngine.h"
 
 NS_CC_BEGIN
 
@@ -442,7 +443,7 @@ void CCEditBox::unregisterScriptEditBoxHandler(void)
 {
     if (0 != m_nScriptEditBoxHandler)
     {
-        CCScriptEngineManager::sharedManager()->getScriptEngine()->removeScriptHandler(m_nScriptEditBoxHandler);
+        CCLuaEngine::defaultEngine()->removeScriptHandler(m_nScriptEditBoxHandler);
         m_nScriptEditBoxHandler = 0;
     }
 }
