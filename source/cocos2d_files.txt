@@ -4,11 +4,9 @@
 
 set (SOURCE_FILES
 #extensions/network/WebSocket.cpp
-cocos2d-x/external/extra/apptools/HelperFunc.cpp
 cocos2d-x/external/extra/crypto/CCCrypto.cpp
 #cocos2d-x/external/extra/luabinding/cocos2dx_extra_ios_iap_luabinding.cpp
 #cocos2d-x/external/extra/luabinding/cocos2dx_extra_luabinding.cpp
-cocos2d-x/external/extra/luabinding/CZHelperFunc_luabinding.cpp
 cocos2d-x/external/extra/crypto/base64/libbase64.c
 cocos2d-x/external/extra/crypto/md5/md5.c
 Core/ccFPSImages.c
@@ -48,22 +46,23 @@ file (GLOB MODULE_SOURCE_FILES
 list(APPEND SOURCE_FILES ${MODULE_SOURCE_FILES})
 
 file (GLOB platform_files 
-    cocos2d-x/ProjectConfig/*.cpp
-	Core/*.cpp
-	Core/platform/*.cpp
-    Core/label_nodes/*.cpp
-	Core/actions/*.cpp
-	Core/cocoa/*.cpp
-	Core/support/*.cpp
-	Core/support/*.c
-	Core/support/component/*.cpp
-	Core/support/data_support/*.cpp
-	Core/support/user_default/*.cpp
-	Core/support/zip_support/*.cpp
-    Core/textures/*.cpp
-    Core/sprite_nodes/*.cpp
-    Core/layers_scenes_transitions_nodes/*.cpp
-    Core/misc_nodes/*.cpp
+    cocos2d-x/ProjectConfig/*.cpp              cocos2d-x/ProjectConfig/*.h
+	Core/*.cpp                                 Core/*.h
+    Core/resources/*.cpp                        Core/resources/*.h
+	Core/platform/*.cpp                        Core/platform/*.h
+    Core/label_nodes/*.cpp                     Core/label_nodes/*.h
+	Core/actions/*.cpp                         Core/actions/*.h
+    Core/cocoa/*.cpp                           Core/cocoa/*.h
+	Core/support/*.cpp                         Core/support/*.h
+    Core/support/*.c                           Core/support/*.h
+    Core/support/component/*.cpp               Core/support/component/*.h
+	Core/support/data_support/*.cpp            Core/support/data_support/*.h
+	Core/support/user_default/*.cpp            Core/support/user_default/*.h
+	Core/support/zip_support/*.cpp             Core/support/zip_support/*.h
+    Core/textures/*.cpp                        Core/textures/*.h
+    Core/sprite_nodes/*.cpp                    Core/sprite_nodes/*.h
+    Core/layers_scenes_transitions_nodes/*.cpp Core/layers_scenes_transitions_nodes/*.h
+    Core/misc_nodes/*.cpp                      Core/misc_nodes/*.h
 	)
 
 list(APPEND SOURCE_FILES ${platform_files})
@@ -127,6 +126,7 @@ ${CMAKE_CURRENT_SOURCE_DIR}/Core
 ${CMAKE_CURRENT_SOURCE_DIR}/Core/support
 ${CMAKE_CURRENT_SOURCE_DIR}/Core/include
 ${CMAKE_CURRENT_SOURCE_DIR}/Core/platform
+${CMAKE_CURRENT_SOURCE_DIR}/Core/resources
 ${CMAKE_CURRENT_SOURCE_DIR}/scripting/lua/cocos2dx_support
 ${CMAKE_CURRENT_SOURCE_DIR}/cocos2dx_lua
 ${DEPS_INCLUDE}

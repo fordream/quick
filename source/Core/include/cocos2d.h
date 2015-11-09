@@ -126,12 +126,14 @@ THE SOFTWARE.
 #include "Particle/CCParticleExamples.h"
 #include "Particle/CCParticleSystemQuad.h"
 
+// resources
+#include "CCFileUtils.h"
+#include "CCImage.h"
+#include "CCSAXParser.h"
+
 // platform
 #include "platform/CCDevice.h"
 #include "platform/CCCommon.h"
-#include "platform/CCFileUtils.h"
-#include "platform/CCImage.h"
-#include "platform/CCSAXParser.h"
 #include "platform/CCThread.h"
 #include "platform/platform.h"
 #include "platform/CCPlatformConfig.h"

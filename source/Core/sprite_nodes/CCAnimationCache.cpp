@@ -29,7 +29,7 @@
 #include "CCSpriteFrame.h"
 #include "CCSpriteFrameCache.h"
 #include "cocoa/CCString.h"
-#include "platform/CCFileUtils.h"
+#include "CCFileUtils.h"
 
 using namespace std;
 

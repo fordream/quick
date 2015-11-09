@@ -500,12 +500,20 @@ void CCFileUtils::purgeFileUtils()
 
 CCFileUtils::CCFileUtils()
 : m_pFilenameLookupDict(NULL)
+, _decoder(new CCFileUtilsDecoder())
 {
 }
 
 CCFileUtils::~CCFileUtils()
 {
     CC_SAFE_RELEASE(m_pFilenameLookupDict);
+    CC_SAFE_DELETE(_decoder);
+}
+
+void CCFileUtils::setDecoder(CCFileUtilsDecoder* decoder)
+{
+    CC_SAFE_DELETE(_decoder);
+    _decoder = decoder;
 }
 
 bool CCFileUtils::init()
@@ -548,6 +556,18 @@ unsigned char* CCFileUtils::getFileData(const char* pszFileName, const char* psz
         
         CCLOG("%s", msg.c_str());
     }
+    else
+    {
+        unsigned long size = *pSize;
+        unsigned char* decoded_buffer = _decoder->decode(pBuffer, &size);
+        if (decoded_buffer)
+        {
+            CC_SAFE_DELETE_ARRAY(pBuffer);
+            *pSize = size;
+            return decoded_buffer;
+        }
+    }
+
     return pBuffer;
 }
 

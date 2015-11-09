@@ -27,7 +27,7 @@
 
 #include "ZipUtils.h"
 #include "ccMacros.h"
-#include "platform/CCFileUtils.h"
+#include "CCFileUtils.h"
 #include "unzip.h"
 #include <map>
 

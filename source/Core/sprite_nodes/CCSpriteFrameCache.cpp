@@ -33,7 +33,7 @@
 #include "CCSpriteFrame.h"
 #include "CCSprite.h"
 #include "support/TransformUtils.h"
-#include "platform/CCFileUtils.h"
+#include "CCFileUtils.h"
 #include "cocoa/CCString.h"
 #include "cocoa/CCArray.h"
 #include "cocoa/CCDictionary.h"

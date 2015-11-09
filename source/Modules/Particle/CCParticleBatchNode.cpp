@@ -40,7 +40,7 @@
 #include "shaders/ccGLStateCache.h"
 #include "support/base64.h"
 #include "support/zip_support/ZipUtils.h"
-#include "platform/CCFileUtils.h"
+#include "CCFileUtils.h"
 #include "kazmath/GL/matrix.h"
 #include "support/CCProfiling.h"
 

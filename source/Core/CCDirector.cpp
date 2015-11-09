@@ -45,7 +45,7 @@ THE SOFTWARE.
 #include "sprite_nodes/CCSpriteFrameCache.h"
 #include "cocoa/CCAutoreleasePool.h"
 #include "platform/platform.h"
-#include "platform/CCFileUtils.h"
+#include "CCFileUtils.h"
 #include "label_nodes/CCLabelBMFont.h"
 #include "label_nodes/CCLabelAtlas.h"
 #include "actions/CCActionManager.h"
@@ -60,7 +60,7 @@ THE SOFTWARE.
 #include "kazmath/kazmath.h"
 #include "kazmath/GL/matrix.h"
 #include "support/CCProfiling.h"
-#include "platform/CCImage.h"
+#include "CCImage.h"
 #include "CCConfiguration.h"
 
 

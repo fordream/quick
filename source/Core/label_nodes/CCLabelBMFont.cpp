@@ -38,7 +38,7 @@
 #include "draw_nodes/CCDrawingPrimitives.h"
 #include "sprite_nodes/CCSprite.h"
 #include "support/CCPointExtension.h"
-#include "platform/CCFileUtils.h"
+#include "CCFileUtils.h"
 #include "CCDirector.h"
 #include "textures/CCTextureCache.h"
 #include "support/ccUTF8.h"

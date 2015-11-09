@@ -24,7 +24,7 @@
 
 #include "CCZipFile.h"
 #include "ccMacros.h"
-#include "platform/CCFileUtils.h"
+#include "CCFileUtils.h"
 
 NS_CC_BEGIN
 

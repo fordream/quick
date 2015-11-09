@@ -35,7 +35,7 @@ THE SOFTWARE.
 #include "ccMacros.h"
 #include "CCConfiguration.h"
 #include "platform/platform.h"
-#include "platform/CCImage.h"
+#include "CCImage.h"
 #include "CCGL.h"
 #include "support/ccUtils.h"
 #include "platform/CCPlatformMacros.h"

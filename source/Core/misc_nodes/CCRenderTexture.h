@@ -28,7 +28,7 @@ THE SOFTWARE.
 #include "base_nodes/CCNode.h"
 #include "sprite_nodes/CCSprite.h"
 #include "kazmath/mat4.h"
-#include "platform/CCImage.h"
+#include "CCImage.h"
 
 NS_CC_BEGIN
 

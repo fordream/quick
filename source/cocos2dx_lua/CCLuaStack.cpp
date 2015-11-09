@@ -35,8 +35,8 @@ extern "C" {
 }
 
 #include "ccMacros.h"
-#include "platform/CCZipFile.h"
-#include "platform/CCFileUtils.h"
+#include "CCZipFile.h"
+#include "CCFileUtils.h"
 
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS || CC_TARGET_PLATFORM == CC_PLATFORM_MAC || (CC_TARGET_PLATFORM == CC_PLATFORM_QT && defined(Q_OS_MAC)))
 #include "platform/ios/CCLuaObjcBridge.h"

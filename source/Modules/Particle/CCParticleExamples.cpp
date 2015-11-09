@@ -28,7 +28,7 @@ THE SOFTWARE.
 #include "textures/CCTextureCache.h"
 #include "support/CCPointExtension.h"
 #include "firePngData.h"
-#include "platform/CCImage.h"
+#include "CCImage.h"
 
 NS_CC_BEGIN
 //

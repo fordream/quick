@@ -30,7 +30,7 @@ THE SOFTWARE.
 #include "cocoa/CCDictionary.h"
 #include "cocoa/CCInteger.h"
 #include "cocoa/CCBool.h"
-#include "platform/CCFileUtils.h"
+#include "CCFileUtils.h"
 #include "cocoa/CCDouble.h"
 #include "CCDirector.h"
 

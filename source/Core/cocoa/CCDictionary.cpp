@@ -25,7 +25,7 @@
 #include "CCDictionary.h"
 #include "CCString.h"
 #include "CCInteger.h"
-#include "platform/CCFileUtils.h"
+#include "CCFileUtils.h"
 
 using namespace std;
 

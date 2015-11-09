@@ -35,6 +35,15 @@ NS_CC_BEGIN
 
 class CCDictionary;
 class CCArray;
+
+
+class CC_DLL CCFileUtilsDecoder
+{
+public:
+    virtual unsigned char* decode(unsigned char* buffer_in, unsigned long* size_inout) { return NULL; }
+};
+
+
 /**
  * @addtogroup platform
  * @{
@@ -342,6 +351,8 @@ public:
     virtual void setPopupNotify(bool bNotify);
     virtual bool isPopupNotify();
 
+
+    virtual void setDecoder(CCFileUtilsDecoder* decoder);
 protected:
     /**
      *  The default constructor.
@@ -455,6 +466,7 @@ protected:
      */
     std::string m_strCachePath;
     
+    CCFileUtilsDecoder* _decoder;
     /**
      *  The singleton pointer of CCFileUtils.
      */
