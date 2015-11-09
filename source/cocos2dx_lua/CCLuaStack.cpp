@@ -82,7 +82,6 @@ extern "C" {
 
 // cocos2dx_extra luabinding
 #include "cocos2dx_extra_luabinding.h"
-#include "CZHelperFunc_luabinding.h"
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
 #include "cocos2dx_extra_ios_iap_luabinding.h"
 #endif
@@ -191,7 +190,6 @@ bool CCLuaStack::init(void)
     luaopen_cocos2dx_extra_luabinding(m_state);
 #endif
 
-	luaopen_CZHelperFunc_luabinding(m_state);
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
     luaopen_cocos2dx_extra_ios_iap_luabinding(m_state);
 #endif

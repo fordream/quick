@@ -42,7 +42,6 @@ THE SOFTWARE.
 #include <cctype>
 #include <queue>
 #include <list>
-#include "apptools/HelperFunc.h"
 #include "tinycthread.h"
 #include "CCLuaEngine.h"
 

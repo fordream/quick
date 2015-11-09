@@ -27,7 +27,6 @@ THE SOFTWARE.
 #include "CCFileUtils.h"
 #include "CCImage.h"
 #include "CCStdC.h"
-#include "apptools/HelperFunc.h"
 #include "../stb/stb_image.h"
 #include "CCCommon.h"
 #include "../stb/stb_image_write.h"
@@ -116,7 +115,7 @@ bool CCImage::initWithImageFileThreadSafe(const char *fullpath, EImageFormat ima
 	bool bRet = false;
 	unsigned long nSize = 0;
 
-	unsigned char* pBuffer = CZHelperFunc::getFileData(fullpath, "rb", &nSize);
+	unsigned char* pBuffer = CCFileUtils::sharedFileUtils()->getFileData(fullpath, "rb", &nSize);
 	if (pBuffer != NULL && nSize > 0)
 	{
 		bRet = initWithImageData(pBuffer, nSize, imageType);
